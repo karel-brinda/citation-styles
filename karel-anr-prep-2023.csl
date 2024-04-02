@@ -86,7 +86,7 @@
         <text variable="volume" form="short" font-weight="normal" suffix=","/>
         <text variable="page" form="short"/>
         <text macro="issuance"/>
-        <text macro="access"/>
+        <!-- <text macro="access"/> -->
         <choose>
           <if match="any" variable="DOI">
             <text variable="DOI" prefix="https://doi.org/"/>
