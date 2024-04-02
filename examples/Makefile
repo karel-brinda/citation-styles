@@ -1,4 +1,4 @@
-.PHONY: all help clean cleanall view
+.PHONY: all help clean cleanall view ../examples.png
 
 SHELL=/usr/bin/env bash -eo pipefail
 
