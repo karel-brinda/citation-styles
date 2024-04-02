@@ -37,22 +37,26 @@ all: ../examples.png
 %.tex:../%.csl template.tex refs.bib
 	pandoc \
 	    template.tex \
-	    -s \
-	    --citeproc \
-	    --bibliography=refs.bib \
-		--pdf-engine=lualatex \
-	    --csl=$< \
-	    -t latex \
-	    -o $@
+		-s \
+		--citeproc \
+		--bibliography=refs.bib \
+		--csl=$< \
+		-H header.tex \
+		-V geometry:a4paper \
+		-V geometry:margin=2cm \
+		-V linkcolor:blue \
+		-V title:"karel-anr-prop-2024" \
+		-t latex \
+		-o $@
 
 help: ## Print help messages
 	@echo -e "$$(grep -hE '^\S*(:.*)?##' $(MAKEFILE_LIST) \
 		| sed \
-			-e 's/:.*##\s*/:/' \
-			-e 's/^\(.*\):\(.*\)/   \\x1b[36m\1\\x1b[m:\2/' \
-			-e 's/^\([^#]\)/\1/g' \
-			-e 's/: /:/g' \
-			-e 's/^#\(.*\)#/\\x1b[90m\1\\x1b[m/' \
+		-e 's/:.*##\s*/:/' \
+		-e 's/^\(.*\):\(.*\)/   \\x1b[36m\1\\x1b[m:\2/' \
+		-e 's/^\([^#]\)/\1/g' \
+		-e 's/: /:/g' \
+		-e 's/^#\(.*\)#/\\x1b[90m\1\\x1b[m/' \
 		| column -c2 -t -s : )"
 
 clean: ## Clean
