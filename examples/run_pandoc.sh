@@ -16,6 +16,7 @@ pandoc \
 	-V geometry:a4paper \
 	-V geometry:margin=2cm \
 	-V mainfont="Latin Modern Math" \
+	-V linkcolor:blue \
 	--pdf-engine=lualatex \
 	-o output.pdf
 
