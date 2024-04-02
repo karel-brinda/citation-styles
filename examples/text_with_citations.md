@@ -1,7 +1,6 @@
 # Examples
 
-* **Citation groups:** one ref, two refs, three refs, many refs
-* **Types of references:**
-  * nb of authors: one author, two author, three authors, many authors
-  * publication types: article, PhD thesis [@karelPhD], conference proceedings, preprint, software
+* **Groups of citations:** one ref [@karelPhD], two refs [@karelPhD; @simplitigs], three refs [@karelPhD; @gnt; @simplitigs], many refs
+* **Groups of authors:** one author [@karelPhD], two author, three authors [@simplitigs], many authors [@gnt]
+* **Publication types:** article [@gnt], PhD thesis [@karelPhD], conference proceedings, preprint, software
 
