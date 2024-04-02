@@ -4,6 +4,9 @@ set -e
 set -o pipefail
 set -u
 
+# more info on how to select a font supporting bracket characters:
+#    https://tex.stackexchange.com/a/573217
+
 pandoc \
 	-s text_with_citations.md \
 	-H header.tex \
@@ -12,5 +15,7 @@ pandoc \
 	--csl=../karel-anr-prop-2024.csl \
 	-V geometry:a4paper \
 	-V geometry:margin=2cm \
+	-V mainfont="Latin Modern Math" \
+	--pdf-engine=lualatex \
 	-o output.pdf
 

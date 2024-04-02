@@ -2,4 +2,14 @@
 %\sectionfont{\clearpage}
 \thispagestyle{empty}
 
+\usepackage{iftex}
+\ifLuaTeX
+        %for lualatex
+        \usepackage{fontspec}
+        \usepackage{unicode-math}
+        % the emoji package si available only for LuaLatex
+        \IfFileExists{emoji.sty}{\usepackage{emoji}}{}
+\else
+        % ⟨material not for LuaTEX⟩
+\fi
 
