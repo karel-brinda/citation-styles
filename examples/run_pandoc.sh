@@ -21,3 +21,11 @@ pandoc \
 	--pdf-engine=lualatex \
 	-o output.pdf
 
+convert \
+	-density 300 \
+	output.pdf \
+	-background white \
+	-flatten \
+	-trim +repage \
+	-quality 100 \
+	output.png
