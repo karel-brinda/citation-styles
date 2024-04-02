@@ -17,6 +17,7 @@ pandoc \
 	-V geometry:margin=2cm \
 	-V mainfont="Latin Modern Math" \
 	-V linkcolor:blue \
+	-V title:"karel-anr-prop-2024" \
 	--pdf-engine=lualatex \
 	-o output.pdf
 
