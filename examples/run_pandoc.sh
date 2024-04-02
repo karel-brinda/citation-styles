@@ -10,5 +10,7 @@ pandoc \
 	--citeproc \
 	--bibliography=refs.bib \
 	--csl=../karel-anr-prop-2024.csl \
+	-V geometry:a4paper \
+	-V geometry:margin=2cm \
 	-o output.pdf
 
