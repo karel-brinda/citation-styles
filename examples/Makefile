@@ -13,7 +13,12 @@ BASENAMES=$(basename $(notdir $(wildcard ../*.csl)))
 ## Commands ##
 ##############
 
-all: $(addsuffix .png,$(BASENAMES))
+all: ../examples.png
+
+../examples.png: $(addsuffix .png,$(BASENAMES))
+	convert -append $^ -bordercolor White -border 20x20 $@
+
+
 	#./run_pandoc.sh
 
 %.png: %.pdf
