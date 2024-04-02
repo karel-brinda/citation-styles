@@ -6,14 +6,17 @@ SHELL=/usr/bin/env bash -eo pipefail
 
 .SUFFIXES:
 
+
+BASENAMES=$(basename $(notdir $(wildcard ../*.csl)))
+
 ##############
 ## Commands ##
 ##############
 
-all: ../karel-anr-prop-2024.png
+all: $(addsuffix .png,$(BASENAMES))
 	#./run_pandoc.sh
 
-../%.png: %.pdf
+%.png: %.pdf
 	convert \
 		-density 300 $< \
 		-background white \
@@ -23,7 +26,8 @@ all: ../karel-anr-prop-2024.png
 		$@
 
 %.pdf: %.tex
-	latexmk -pdflatex=lualatex -pdf $<
+	#-pdflatex=lualatex
+	latexmk -pdf $<
 
 %.tex:../%.csl template.tex refs.bib
 	pandoc \
@@ -47,6 +51,7 @@ help: ## Print help messages
 		| column -c2 -t -s : )"
 
 clean: ## Clean
+	rm -fv ../*.png
 
 cleanall: clean ## Clean all
 
