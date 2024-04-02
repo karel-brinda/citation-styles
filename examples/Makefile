@@ -15,7 +15,7 @@ all: ../karel-anr-prop-2024.png
 
 ../%.png: %.pdf
 	convert \
-		-density 300 %< \
+		-density 300 $< \
 		-background white \
 		-flatten \
 		-trim +repage \
@@ -25,7 +25,7 @@ all: ../karel-anr-prop-2024.png
 %.pdf: %.tex
 	latexmk -pdflatex=lualatex -pdf $<
 
-%.tex:../%.csl
+%.tex:../%.csl template.tex refs.bib
 	pandoc \
 	    template.tex \
 	    -s \
