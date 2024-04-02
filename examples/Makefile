@@ -10,8 +10,31 @@ SHELL=/usr/bin/env bash -eo pipefail
 ## Commands ##
 ##############
 
-all:
-	./run_pandoc.sh
+all: ../karel-anr-prop-2024.png
+	#./run_pandoc.sh
+
+../%.png: %.pdf
+	convert \
+		-density 300 %< \
+		-background white \
+		-flatten \
+		-trim +repage \
+		-quality 100 \
+		$@
+
+%.pdf: %.tex
+	latexmk -pdflatex=lualatex -pdf $<
+
+%.tex:../%.csl
+	pandoc \
+	    template.tex \
+	    -s \
+	    --citeproc \
+	    --bibliography=refs.bib \
+		--pdf-engine=lualatex \
+	    --csl=$< \
+	    -t latex \
+	    -o $@
 
 help: ## Print help messages
 	@echo -e "$$(grep -hE '^\S*(:.*)?##' $(MAKEFILE_LIST) \
