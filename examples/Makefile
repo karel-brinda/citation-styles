@@ -28,3 +28,4 @@ clean: ## Clean
 cleanall: clean ## Clean all
 
 view: ## View output
+	open output.pdf
