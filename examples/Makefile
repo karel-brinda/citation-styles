@@ -45,7 +45,7 @@ all: ../examples.png
 		-V geometry:a4paper \
 		-V geometry:margin=2cm \
 		-V linkcolor:blue \
-		-V title:"karel-anr-prop-2024" \
+		-V title:"Style: $*.csl" \
 		-t latex \
 		-o $@
 
