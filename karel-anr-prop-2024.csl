@@ -125,7 +125,7 @@
             <text variable="page"/>
             <text macro="issuance"/>
         </group>
-        <text macro="access"/>
+        <!-- <text macro="access"/> -->
         <choose>
           <if match="any" variable="DOI">
             <text variable="DOI" prefix="⟨" suffix="⟩" text-case="lowercase"/>
